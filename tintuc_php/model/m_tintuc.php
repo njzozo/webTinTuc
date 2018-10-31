@@ -14,8 +14,13 @@
 			return $this->loadAllRows();
 		}
 
-		function getTinTucByIdLoai($id_loaitin){
+		//phan trang
+		function getTinTucByIdLoai($id_loaitin, $vitri = -1, $limit = -1){			
 			$sql = "SELECT * FROM tintuc WHERE idLoaiTin = $id_loaitin";
+			if($vitri > -1 && $limit > 1){
+				//neu truyen vi tri va limit thi noi chuoi voi chuoi $sql
+				$sql .= " limit $vitri,$limit";
+			}
 			$this->setQuery($sql);
 			return $this->loadAllRows(array($id_loaitin));
 		}
@@ -24,6 +29,36 @@
 			$sql = "SELECT Ten FROM loaitin WHERE id = $id_loaitin";
 			$this->setQuery($sql);
 			return $this->loadRow(array($id_loaitin));
+		}
+
+		function getChitietTin($id){
+			$sql = "SELECT * FROM tintuc WHERE id = $id";
+			$this->setQuery($sql);
+			return $this->loadRow(array($id));
+		}
+
+		function getComment($id_tin){
+			$sql = "SELECT * FROM comment WHERE idTinTuc = $id_tin";
+			$this->setQuery($sql);
+			return $this->loadAllRows(array($id_tin));
+		}
+
+		function getRelatedNews($alias){
+			$sql = "SELECT tt.*, lt.TenKhongDau as TenKhongDau, lt.id as idLoaitin FROM tintuc tt INNER JOIN loaitin lt ON tt.idLoaiTin = lt.id WHERE lt.TenKhongDau = '$alias' limit 0, 5";
+			$this->setQuery($sql);
+			return $this->loadAllRows(array($alias));
+		}
+
+		function getAliasLoaitin($id_loaitin){
+			$sql = "SELECT TenKhongDau FROM loaitin WHERE id = $id_loaitin";
+			$this->setQuery($sql);
+			return $this->loadRow(array($id_loaitin));
+		}
+
+		function getTinNoiBat(){
+			$sql = "SELECT tt.*, lt.TenKhongDau as TenKhongDau, lt.id as idLoaitin FROM tintuc tt INNER JOIN loaitin lt ON tt.idLoaiTin = lt.id WHERE tt.NoiBat = 1 limit 0, 5";
+			$this->setQuery($sql);
+			return $this->loadAllRows(array());
 		}
 	}
 ?>

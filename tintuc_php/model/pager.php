@@ -42,12 +42,12 @@ class pagination{
 			$prev 	= '';
 			if($this->_currentPage > 1){
 				$start 	= "<li><a href='$actual_link&page=1'>Start</a></li>";
-				$prev 	= "<li><a href='$actual_link&page=".($this->_currentPage-1)."'>«</a></li>";
+				$prev 	= "<li><a href='$actual_link&page=".($this->_currentPage-1)."'> < </a></li>";
 			}
 			$next 	= '';
 			$end 	= '';
 			if($this->_currentPage < $this->_totalPage){
-				$next 	= "<li><a href='$actual_link&page=".($this->_currentPage+1)."'>«</a></li>";
+				$next 	= "<li><a href='$actual_link&page=".($this->_currentPage+1)."'> > </a></li>";
 				$end 	= "<li><a href='$actual_link&page=".$this->_totalPage."'>End</a></li>";
 			}
 

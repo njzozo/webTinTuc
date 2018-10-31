@@ -208,7 +208,7 @@
                                         </h3>
                                         <div class="col-md-12 border-right">
                                             <div class="col-md-3">
-                                                <a href="chitiet.html">
+                                                <a href="chitiet.php?loai_tin=<?=$tenkhongdau?>&id_tin=<?=$mn->idTin?>">
                                                     <img class="img-responsive" src="public/image/tintuc/<?=$mn->HinhTin?>" alt="">
                                                 </a>
                                             </div>
@@ -216,7 +216,7 @@
                                             <div class="col-md-9">
                                                 <h3><?=$mn->TieuDeTin?></h3>
                                                 <p><?=$mn->TomTatTin?></p>
-                                                <a class="btn btn-primary" href="chitiet.html">View Project <span class="glyphicon glyphicon-chevron-right"></span></a>
+                                                <a class="btn btn-primary" href="chitiet.php?loai_tin=<?=$tenkhongdau?>&id_tin=<?=$mn->idTin?>">Xem thêm <span class="glyphicon glyphicon-chevron-right"></span></a>
                                             </div>
 
                                         </div>

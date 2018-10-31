@@ -6,6 +6,8 @@
     $tintuc = $tintucsonhieu['danhmuctin'];
     $menu = $tintucsonhieu['menu'];
     $title = $tintucsonhieu['title'];
+    $thanh_phantrang = $tintucsonhieu['thanh_phantrang'];
+    $alias = $tintucsonhieu['alias'];
 ?>
 
 <!DOCTYPE html>
@@ -134,7 +136,7 @@
                                     <div class="row-item row">
                                         <div class="col-md-3">
 
-                                            <a href="detail.html">
+                                            <a href="chitiet.php?loai_tin=<?=$alias->TenKhongDau?>&id_tin=<?=$tin->id?>">
                                                 <br>
                                                 <img width="200px" height="200px" class="img-responsive" src="public/image/tintuc/<?=$tin->Hinh?>" alt="">
                                             </a>
@@ -143,7 +145,7 @@
                                         <div class="col-md-9">
                                             <h3><?=$tin->TieuDe?></h3>
                                             <p><?=$tin->TomTat?></p>
-                                            <a class="btn btn-primary" href="detail.html">View Project <span class="glyphicon glyphicon-chevron-right"></span></a>
+                                            <a class="btn btn-primary" href="chitiet.php?loai_tin=<?=$alias->TenKhongDau?>&id_tin=<?=$tin->id?>">Xem thêm <span class="glyphicon glyphicon-chevron-right"></span></a>
                                         </div>
                                         <div class="break"></div>
                                     </div>
@@ -155,6 +157,7 @@
 
 
                 </div>
+                <div style="text-align: center;"><?=$thanh_phantrang?></div>
             </div> 
 
         </div>
